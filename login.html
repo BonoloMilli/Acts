@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACTS - Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3a3a3a;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ff6b6b;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--primary-color);
+            background-color: #f5f5f5;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        .auth-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #2a2a2a;
+            border-color: #2a2a2a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5 min-vh-100 d-flex flex-column justify-content-center">
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold">ACTS</h1>
+            <p class="lead">Fashion Reimagined</p>
+        </div>
+        
+        <div class="auth-container">
+            <h2 class="text-center mb-4">Welcome Back</h2>
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="loginEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="loginEmail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" required>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                </div>
+                <button type="button" class="btn btn-primary w-100 mb-3" onclick="loginUser()">Login</button>
+                <div class="text-center">
+                    <a href="#" class="text-decoration-none">Forgot password?</a>
+                    <p class="mt-3">Don't have an account? <a href="signup.html">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function loginUser() {
+            // For demo purposes, we'll just redirect to main platform
+            // In a real app, you'd validate credentials with a backend
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (email && password) {
+                // Store logged in state in localStorage (for demo)
+                localStorage.setItem('actsLoggedIn', 'true');
+                localStorage.setItem('actsUserEmail', email);
+                
+                // Redirect to main platform
+                window.location.href = 'platform.html';
+            } else {
+                alert('Please enter your email and password');
+            }
+        }
+        
+        // Check if user is already logged in
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('actsLoggedIn') === 'true') {
+                window.location.href = 'platform.html';
+            }
+        });
+    </script>
+</body>
+</html>
