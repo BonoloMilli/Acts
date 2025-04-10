@@ -76,30 +76,35 @@
     </div>
 
     <script>
-        function loginUser() {
-            // For demo purposes, we'll just redirect to main platform
-            // In a real app, you'd validate credentials with a backend
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            
-            if (email && password) {
-                // Store logged in state in localStorage (for demo)
-                localStorage.setItem('actsLoggedIn', 'true');
-                localStorage.setItem('actsUserEmail', email);
-                
-                // Redirect to main platform
-                window.location.href = 'platform.html';
-            } else {
-                alert('Please enter your email and password');
-            }
+    function loginUser() {
+        const email = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value;
+
+        if (!email || !password) {
+            alert('Please enter your email and password');
+            return;
         }
-        
-        // Check if user is already logged in
-        document.addEventListener('DOMContentLoaded', function() {
-            if (localStorage.getItem('actsLoggedIn') === 'true') {
-                window.location.href = 'platform.html';
-            }
-        });
-    </script>
+
+        const users = JSON.parse(localStorage.getItem('actsUsers') || '[]');
+
+        const user = users.find(user => user.email === email && user.password === password);
+
+        if (user) {
+            localStorage.setItem('actsLoggedIn', 'true');
+            localStorage.setItem('actsUserEmail', email);
+            localStorage.setItem('actsUserName', user.fullName);
+
+            window.location.href = 'platform.html';
+        } else {
+            alert('Invalid email or password');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (localStorage.getItem('actsLoggedIn') === 'true') {
+            window.location.href = 'platform.html';
+        }
+    });
+</script>
 </body>
 </html>
