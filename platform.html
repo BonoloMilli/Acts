@@ -218,6 +218,11 @@
             overflow: hidden;
         }
         
+        .add-to-cart.unavailable {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        
         .add-to-cart .btn-text {
             position: relative;
             z-index: 1;
@@ -714,211 +719,216 @@
         }
 
         /* Checkout Modal Styles */
-.checkout-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 2000;
-    overflow: auto;
-}
+        .checkout-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            overflow: auto;
+        }
 
-.checkout-content {
-    background-color: white;
-    margin: 5% auto;
-    padding: 20px;
-    max-width: 600px;
-    border-radius: 8px;
-    position: relative;
-}
+        .checkout-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            max-width: 600px;
+            border-radius: 8px;
+            position: relative;
+        }
 
-.close-checkout {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
+        .close-checkout {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-.payment-methods {
-    margin: 20px 0;
-}
+        .payment-methods {
+            margin: 20px 0;
+        }
 
-.payment-method {
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
+        .payment-method {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
 
-.payment-method.active {
-    border-color: #000;
-}
+        .payment-method.active {
+            border-color: #000;
+        }
 
-.bank-details {
-    margin-top: 15px;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-}
+        .bank-details {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
 
-.confirm-order-btn {
-    background-color: #000;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    width: 100%;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 20px;
-}
+        .confirm-order-btn {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
 
-.confirm-order-btn:hover {
-    background-color: #333;
-}
+        .confirm-order-btn:hover {
+            background-color: #333;
+        }
 
-/* Proof of Payment Modal Styles */
-.popup-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 3000;
-}
+        /* Proof of Payment Modal Styles */
+        .popup-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 3000;
+        }
 
-.popup-content {
-    background-color: white;
-    margin: 10% auto;
-    padding: 25px;
-    max-width: 500px;
-    border-radius: 8px;
-    position: relative;
-}
+        .popup-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 25px;
+            max-width: 500px;
+            border-radius: 8px;
+            position: relative;
+        }
 
-.close-popup {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
+        .close-popup {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-.form-group {
-    margin-bottom: 20px;
-}
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-}
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
 
-.form-group input[type="file"],
-.form-group input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
+        .form-group input[type="file"],
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
 
-.submit-proof-btn {
-    background-color: #000;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    width: 100%;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-}
+        .submit-proof-btn {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
 
-.submit-proof-btn:hover {
-    background-color: #333;
-}
+        .submit-proof-btn:hover {
+            background-color: #333;
+        }
 
-/* Footer Styles */
-.site-footer {
-    background-color: #000;
-    color: #fff;
-    padding: 40px 0 0;
-    margin-top: 50px;
-}
+        /* Footer Styles */
+        .site-footer {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 0 0;
+            margin-top: 50px;
+        }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
 
-.footer-section {
-    margin-bottom: 30px;
-}
+        .footer-section {
+            margin-bottom: 30px;
+        }
 
-.footer-section h3 {
-    color: #fff;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-.footer-section p, 
-.footer-section li {
-    color: #bbb;
-    margin-bottom: 10px;
-    line-height: 1.6;
-}
+        .footer-section p, 
+        .footer-section li {
+            color: #bbb;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
 
-.footer-section a {
-    color: #bbb;
-    text-decoration: none;
-    transition: color 0.3s;
-}
+        .footer-section a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-.footer-section a:hover {
-    color: #fff;
-}
+        .footer-section a:hover {
+            color: #fff;
+        }
 
-.footer-bottom {
-    background-color: #111;
-    padding: 20px 0;
-    text-align: center;
-}
+        .footer-bottom {
+            background-color: #111;
+            padding: 20px 0;
+            text-align: center;
+        }
 
-.footer-bottom p {
-    margin: 0;
-    color: #999;
-    font-size: 0.9rem;
-}
+        .footer-bottom p {
+            margin: 0;
+            color: #999;
+            font-size: 0.9rem;
+        }
 
-@media (max-width: 768px) {
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-}
-
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("ZtrPvmZzYP3PNJiUr");
+        })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <header>
-        <div class="header-content"><div class="logo">
-            <img src="assets/images/logo.jpg" alt="ACTS Logo" style="height: 40px;" />
-          </div>
-          
-
+        <div class="header-content">
+            <div class="logo">
+                <img src="assets/images/logo.jpg" alt="ACTS Logo" style="height: 40px;" />
+            </div>
             <div class="cart-icon" id="cartIcon">
                 🛒
                 <span class="cart-count" id="cartCount">0</span>
@@ -979,7 +989,7 @@
     </div>
     
     <!-- Image Gallery Modal -->
-    <div id="galleryModal" class="gallery-modal">
+    <div class="gallery-modal" id="galleryModal">
         <span class="close-gallery" id="closeGallery">&times;</span>
         <div class="gallery-content">
             <div class="main-image-container">
@@ -990,77 +1000,78 @@
             <div class="thumbnail-container" id="thumbnailContainer"></div>
         </div>
     </div>
+    
     <!-- Checkout Modal -->
-<div class="checkout-modal" id="checkoutModal">
-    <div class="checkout-content">
-        <span class="close-checkout" id="closeCheckout">&times;</span>
-        <h2>Complete Your Order</h2>
-        <div class="payment-methods">
-            <div class="payment-method active" data-method="eft">
-                <h3>Direct Bank Transfer (EFT)</h3>
-                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference.</p>
-                <div class="bank-details">
-                    <p><strong>Bank Name:</strong> Your Bank Name</p>
-                    <p><strong>Account Name:</strong> Your Business Name</p>
-                    <p><strong>Account Number:</strong> 1234567890</p>
-                    <p><strong>Branch Code:</strong> 123456</p>
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-content">
+            <span class="close-checkout" id="closeCheckout">&times;</span>
+            <h2>Complete Your Order</h2>
+            <div class="payment-methods">
+                <div class="payment-method active" data-method="eft">
+                    <h3>Direct Bank Transfer (EFT)</h3>
+                    <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference.</p>
+                    <div class="bank-details">
+                        <p><strong>Account Name:</strong> Your Business Name</p>
+                        <p><strong>Account Number:</strong> 1234567890</p>
+                        <p><strong>Branch Code:</strong> 123456</p>
+                        <p><strong>Bank Name:</strong> Your Bank Name</p>
+                    </div>
                 </div>
             </div>
+            <button class="confirm-order-btn" id="confirmOrder">Place Order</button>
         </div>
-        <button class="confirm-order-btn" id="confirmOrder">Place Order</button>
     </div>
-</div>
-
-<!-- Proof of Payment Modal -->
-<div class="popup-modal" id="proofModal">
-    <div class="popup-content">
-        <span class="close-popup" id="closeProof">&times;</span>
-        <h2>Upload Proof of Payment</h2>
-        <p>Please upload your EFT payment confirmation (screenshot or PDF)</p>
-        
-        <form id="paymentProofForm">
-            <div class="form-group">
-                <label for="paymentProof">Select File</label>
-                <input type="file" id="paymentProof" accept="image/*,.pdf" required>
+    
+    <!-- Proof of Payment Modal -->
+    <div class="popup-modal" id="proofModal">
+        <div class="popup-content">
+            <span class="close-popup" id="closeProof">&times;</span>
+            <h2>Upload Proof of Payment</h2>
+            <p>Please upload your EFT payment confirmation (PDF only)</p>
+            <form id="paymentProofForm">
+                <div class="form-group">
+                    <label for="paymentProof">Select PDF File</label>
+                    <input type="file" id="paymentProof" accept=".pdf" required>
+                </div>
+                <div class="form-group">
+                    <label for="referenceNumber">Reference Number</label>
+                    <input type="text" id="referenceNumber" placeholder="Enter your payment reference" required>
+                </div>
+                <button type="submit" class="submit-proof-btn">Submit Proof</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ACTS</h3>
+                <p>Fashion that speaks. Style that lasts. Quality that matters.</p>
             </div>
-            <div class="form-group">
-                <label for="referenceNumber">Reference Number</label>
-                <input type="text" id="referenceNumber" placeholder="Enter your payment reference" required>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
             </div>
-            <button type="submit" class="submit-proof-btn">Submit Proof</button>
-        </form>
-    </div>
-</div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Email: info@acts.com</li>
+                    <li>Phone: +27 12 345 6789</li>
+                    <li>Address: Johannesburg, South Africa</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ACTS. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-<!-- Footer -->
-<footer class="site-footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>ACTS</h3>
-            <p>Fashion that speaks. Style that lasts. Quality that matters.</p>
-        </div>
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h3>Contact Us</h3>
-            <ul>
-                <li>Email: info@acts.com</li>
-                <li>Phone: +27 12 345 6789</li>
-                <li>Address: Johannesburg, South Africa</li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 ACTS. All Rights Reserved.</p>
-    </div>
-</footer>
     <script>
         // Product data with image paths and gallery images
         const products = [
@@ -1069,7 +1080,7 @@
                 id: 1, 
                 name: 'T-Shirt', 
                 price: 399.99, 
-                category: 'tshirts', 
+                category: 'tshirts',
                 image: 'assets/images/t-shirt.JPG',
                 gallery: [
                     'assets/images/t-shirt.JPG',
@@ -1081,7 +1092,7 @@
                 id: 2, 
                 name: 'T-Shirt', 
                 price: 499.99, 
-                category: 'tshirts', 
+                category: 'tshirts',
                 image: 'assets/images/t-shirt-2.JPG',
                 gallery: [
                     'assets/images/t-shirt-2.JPG',
@@ -1093,7 +1104,7 @@
                 id: 3, 
                 name: 'Not Available', 
                 price: 0.00, 
-                category: 'tshirts', 
+                category: 'tshirts',
                 image: 'assets/images/t-shirt-3.JPG',
                 gallery: [
                     'assets/images/t-shirt-3.JPG',
@@ -1105,7 +1116,7 @@
                 id: 4, 
                 name: 'Not Available',
                 price: 0.00, 
-                category: 'tshirts', 
+                category: 'tshirts',
                 image: 'assets/images/t-shirt-4.jpg',
                 gallery: [
                     'assets/images/t-shirt-4.jpg',
@@ -1117,7 +1128,7 @@
                 id: 5, 
                 name: 'Not Available',
                 price: 0.00, 
-                category: 'tshirts', 
+                category: 'tshirts',
                 image: 'assets/images/t-shirt-5.JPG',
                 gallery: [
                     'assets/images/t-shirt-5.JPG',
@@ -1129,7 +1140,7 @@
                 id: 6, 
                 name: 'Not Available',
                 price: 0.00, 
-                category: 'tshirts', 
+                category: 'tshirts',
                 image: 'assets/images/t-shirt-6.png',
                 gallery: [
                     'assets/images/t-shirt-6.png',
@@ -1141,7 +1152,7 @@
                 id: 7, 
                 name: 'T-Shirt', 
                 price: 399.99, 
-                category: 'tshirts', 
+                category: 'tshirts',
                 image: 'assets/images/t-shirt-9.jpg',
                 gallery: [
                     'assets/images/t-shirt-9.jpg',
@@ -1153,7 +1164,7 @@
                 id: 8, 
                 name: 'Not Available', 
                 price: 0.00, 
-                category: 'tshirts', 
+                category: 'tshirts',
                 image: 'assets/images/t-shirt-8.jpeg',
                 gallery: [
                     'assets/images/tshirts/pink1.jpg',
@@ -1161,13 +1172,12 @@
                     'assets/images/tshirts/pink3.jpg'
                 ]
             },
-            
             // Hoodies
             { 
                 id: 9, 
                 name: 'Not Available', 
                 price: 0.00, 
-                category: 'hoodies', 
+                category: 'hoodies',
                 image: 'assets/images/hoodie.JPG',
                 gallery: [
                     'assets/images/hoodie.JPG',
@@ -1179,7 +1189,7 @@
                 id: 10, 
                 name: 'Hoodie', 
                 price: 649.99, 
-                category: 'hoodies', 
+                category: 'hoodies',
                 image: 'assets/images/hoodie-2.JPG',
                 gallery: [
                     'assets/images/hoodie-2.JPG',
@@ -1187,13 +1197,12 @@
                     'assets/images/hoodie-2.JPG'
                 ]
             },
-            
             // Jeans
             { 
                 id: 11, 
                 name: 'Not Available', 
                 price: 0.00, 
-                category: 'jeans', 
+                category: 'jeans',
                 image: 'assets/images/jean.jpeg',
                 gallery: [
                     'assets/images/jean.jpeg',
@@ -1205,7 +1214,7 @@
                 id: 12, 
                 name: 'T-shirt', 
                 price: 499.99, 
-                category: 'tshirts', 
+                category: 'tshirts',
                 image: 'assets/images/t-shirt-11.jpg',
                 gallery: [
                     'assets/images/t-shirt-11.jpg',
@@ -1213,13 +1222,12 @@
                     'assets/images/t-shirt-11.jpg'
                 ]
             },
-            
             // Hats
             { 
                 id: 13, 
                 name: 'T-shirt', 
                 price: 299.99, 
-                category: 'tshirts', 
+                category: 'tshirts',
                 image: 'assets/images/hat.JPG',
                 gallery: [
                     'assets/images/hat.JPG',
@@ -1231,7 +1239,7 @@
                 id: 14, 
                 name: 'Not Available', 
                 price: 0.00, 
-                category: 'hats', 
+                category: 'hats',
                 image: 'assets/images/hat-2.JPG',
                 gallery: [
                     'assets/images/hat-2.JPG',
@@ -1243,7 +1251,7 @@
                 id: 15, 
                 name: 'Hoodie', 
                 price: 449.99, 
-                category: 'hoodies', 
+                category: 'hoodies',
                 image: 'assets/images/hoodie-3.jpg',
                 gallery: [
                     'assets/images/hoodie-3.jpg',
@@ -1255,7 +1263,7 @@
                 id: 16, 
                 name: 'Hoodie', 
                 price: 449.99, 
-                category: 'hoodies', 
+                category: 'hoodies',
                 image: 'assets/images/hoodie-4.jpg',
                 gallery: [
                     'assets/images/hoodie-4.jpg',
@@ -1264,10 +1272,10 @@
                 ]
             },
             { 
-                id: 16, 
+                id: 17, 
                 name: 'T-shirt', 
                 price: 399.99, 
-                category: 'tshirts', 
+                category: 'tshirts',
                 image: 'assets/images/t-shirt-10.jpg',
                 gallery: [
                     'assets/images/hoodie-10.jpg',
@@ -1276,7 +1284,7 @@
                 ]
             }
         ];
-        
+
         // DOM elements
         const productsContainer = document.getElementById('productsContainer');
         const productsTitle = document.getElementById('productsTitle');
@@ -1285,18 +1293,18 @@
         const closeCart = document.getElementById('closeCart');
         const cartContainer = document.getElementById('cartContainer');
         const overlay = document.getElementById('overlay');
+        const cartSubtotal = document.getElementById('cartSubtotal');
         const cartItems = document.getElementById('cartItems');
         const cartCount = document.getElementById('cartCount');
         const cartTotal = document.getElementById('cartTotal');
-        const cartSubtotal = document.getElementById('cartSubtotal');
         
         // Gallery elements
         const galleryModal = document.getElementById('galleryModal');
         const closeGallery = document.getElementById('closeGallery');
+        const nextImage = document.getElementById('nextImage');
         const mainImage = document.getElementById('mainImage');
         const thumbnailContainer = document.getElementById('thumbnailContainer');
         const prevImage = document.getElementById('prevImage');
-        const nextImage = document.getElementById('nextImage');
         
         // Cart data
         let cart = [];
@@ -1398,46 +1406,46 @@
         function createProductCard(product) {
             const card = document.createElement('div');
             card.className = 'product-card';
+            
+            // Check if price is 0 (unavailable)
+            const isUnavailable = product.price === 0;
+            const buttonText = isUnavailable ? 'Not Available' : 'Add to Cart';
+            const buttonClass = isUnavailable ? 'add-to-cart unavailable' : 'add-to-cart';
+            
             card.innerHTML = `
                 <div class="product-image">
                     <img src="${product.image}" alt="${product.name}">
                 </div>
                 <div class="product-info">
                     <div class="product-title">${product.name}</div>
-                    <div class="product-price">R${product.price.toFixed(2)}</div>
-                    <button class="add-to-cart" data-id="${product.id}">
-                        <span class="btn-text">Add to Cart</span>
+                    <div class="product-price">${isUnavailable ? 'Not Available' : 'R' + product.price.toFixed(2)}</div>
+                    <button class="${buttonClass}" data-id="${product.id}" ${isUnavailable ? 'disabled' : ''}>
+                        <span class="btn-text">${buttonText}</span>
                     </button>
                 </div>
             `;
             
-            // Add event listener for Add to Cart button
-            const addButton = card.querySelector('.add-to-cart');
-            addButton.addEventListener('click', (e) => {
-                // Add ripple effect
-                const ripple = document.createElement('span');
-                ripple.classList.add('ripple');
-                addButton.appendChild(ripple);
-                
-                // Remove ripple after animation completes
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-                
-                // Create floating element animation
-                createFloatingElement(e, product);
-                
-                // Add to cart
-                addToCart(product);
-                
-                // Button animation
-                addButton.classList.add('cart-animation');
-                setTimeout(() => {
-                    addButton.classList.remove('cart-animation');
-                }, 500);
-            });
+            // Only add click event for available items
+            if (!isUnavailable) {
+                const addButton = card.querySelector('.add-to-cart');
+                addButton.addEventListener('click', (e) => {
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+                    addButton.appendChild(ripple);
+                    addToCart(product);
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                    
+                    createFloatingElement(e, product);
+                    addButton.classList.add('cart-animation');
+                    setTimeout(() => {
+                        addButton.classList.remove('cart-animation');
+                    }, 500);
+                });
+            }
             
-            // Add event listener for product image click to open gallery
+            // Add gallery event listener
             const productImage = card.querySelector('.product-image');
             productImage.addEventListener('click', () => {
                 openGallery(product);
@@ -1671,88 +1679,147 @@
         }
 
         // Add to your existing script
-const checkoutBtn = document.querySelector('.checkout-btn');
-const checkoutModal = document.getElementById('checkoutModal');
-const closeCheckout = document.getElementById('closeCheckout');
-const confirmOrderBtn = document.getElementById('confirmOrder');
+        const checkoutBtn = document.querySelector('.checkout-btn');
+        const checkoutModal = document.getElementById('checkoutModal');
+        const closeCheckout = document.getElementById('closeCheckout');
+        const confirmOrderBtn = document.getElementById('confirmOrder');
+        const proofModal = document.getElementById('proofModal');
+        const closeProof = document.getElementById('closeProof');
+        const paymentProofForm = document.getElementById('paymentProofForm');
 
-// Open checkout modal
-checkoutBtn.addEventListener('click', () => {
-    if (cart.length === 0) {
-        alert('Your cart is empty!');
-        return;
-    }
-    checkoutModal.style.display = 'block';
-});
+        // Open checkout modal
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                Swal.fire({
+                    text: 'Your cart is empty!',
+                    icon: 'warning',
+                    confirmButtonColor: '#000000',
+                    background: '#ffffff',
+                    iconColor: '#000000'
+                });
+                return;
+            }
+            checkoutModal.style.display = 'block';
+        });
 
-// Close checkout modal
-closeCheckout.addEventListener('click', () => {
-    checkoutModal.style.display = 'none';
-});
+        // Close checkout modal
+        closeCheckout.addEventListener('click', () => {
+            checkoutModal.style.display = 'none';
+        });
 
-// Confirm order
-confirmOrderBtn.addEventListener('click', () => {
-    // Clear cart and close modals
-    cart = [];
-    updateCart();
-    checkoutModal.style.display = 'none';
-    cartContainer.classList.remove('open');
-    overlay.classList.remove('open');
-});
+        // Confirm order
+        confirmOrderBtn.addEventListener('click', () => {
+            checkoutModal.style.display = 'none';
+            proofModal.style.display = 'block';
+        });
 
-// Close modal when clicking outside
-window.addEventListener('click', (e) => {
-    if (e.target === checkoutModal) {
-        checkoutModal.style.display = 'none';
-    }
-});
+        // Close proof modal
+        closeProof.addEventListener('click', () => {
+            proofModal.style.display = 'none';
+        });
 
-// Add these variables at the top with other DOM elements
-const proofModal = document.getElementById('proofModal');
-const closeProof = document.getElementById('closeProof');
-const paymentProofForm = document.getElementById('paymentProofForm');
+        // Update the payment proof form submission handler
+        paymentProofForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const fileInput = document.getElementById('paymentProof');
+            const referenceNumber = document.getElementById('referenceNumber').value;
+            
+            if (fileInput.files.length > 0 && referenceNumber) {
+                try {
+                    // Format order details
+                    const orderDetails = cart.map(item => 
+                        `Product: ${item.name}\n` +
+                        `Quantity: ${item.quantity}\n` +
+                        `Price: R${item.price}\n` +
+                        `Subtotal: R${(item.price * item.quantity).toFixed(2)}`
+                    ).join('\n\n');
 
-// Modify the confirmOrderBtn event listener
-confirmOrderBtn.addEventListener('click', () => {
-    checkoutModal.style.display = 'none';
-    proofModal.style.display = 'block';
-});
+                    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                    const currentDate = new Date().toLocaleString();
+                    const orderId = `ORD-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
-// Close proof modal
-closeProof.addEventListener('click', () => {
-    proofModal.style.display = 'none';
-});
+                    // Prepare email parameters
+                    const templateParams = {
+                        to_name: 'Store Owner',
+                        reference_number: referenceNumber,
+                        order_id: orderId,
+                        date: currentDate,
+                        order_details: orderDetails,
+                        total_amount: `R${total.toFixed(2)}`,
+                        // Replace this with your Google Drive shared link
+                        proof_of_payment_link: 'https://drive.google.com/drive/folders/1WS7F_8MUaH3OSXmeTrAVm7r6KALKXqKU'
+                    };
 
-// Handle proof submission
-paymentProofForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const fileInput = document.getElementById('paymentProof');
-    const referenceNumber = document.getElementById('referenceNumber').value;
-    
-    if (fileInput.files.length > 0 && referenceNumber) {
-        // Here you would normally handle the file upload
-        alert('Proof of payment submitted successfully! We will verify your payment shortly.');
-        
-        // Reset and close everything
-        paymentProofForm.reset();
-        proofModal.style.display = 'none';
-        cart = [];
-        updateCart();
-        cartContainer.classList.remove('open');
-        overlay.classList.remove('open');
-    }
-});
+                    // Send email with EmailJS
+                    const response = await emailjs.send(
+                        'service_3s3qu9u',
+                        'template_z6fp345',
+                        templateParams,
+                        'ZtrPvmZzYP3PNJiUr'
+                    );
 
-// Close modals when clicking outside
-window.addEventListener('click', (e) => {
-    if (e.target === checkoutModal) {
-        checkoutModal.style.display = 'none';
-    }
-    if (e.target === proofModal) {
-        proofModal.style.display = 'none';
-    }
-});
+                    if (response.status === 200) {
+                        // Reset and close everything
+                        paymentProofForm.reset();
+                        proofModal.style.display = 'none';
+                        cart = [];
+                        updateCart();
+                        cartContainer.classList.remove('open');
+                        overlay.classList.remove('open');
+                        
+                        Swal.fire({
+                            title: 'Order Confirmed!',
+                            text: `Your order ID is ${orderId}. We will process your order shortly.`,
+                            icon: 'success',
+                            confirmButtonColor: '#000000',
+                            background: '#ffffff',
+                            iconColor: '#000000'
+                        });
+                    } else {
+                        throw new Error('Failed to send email. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Error processing order: ' + error.message,
+                        icon: 'error',
+                        confirmButtonColor: '#000000',
+                        background: '#ffffff',
+                        iconColor: '#000000'
+                    });
+                }
+            } else {
+                Swal.fire({
+                    text: 'Please provide both reference number and proof of payment file.',
+                    icon: 'warning',
+                    confirmButtonColor: '#000000',
+                    background: '#ffffff',
+                    iconColor: '#000000'
+                });
+            }
+        });
+
+        // Helper function to convert file to base64
+        function convertFileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === checkoutModal) {
+                checkoutModal.style.display = 'none';
+            }
+            if (e.target === proofModal) {
+                proofModal.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
