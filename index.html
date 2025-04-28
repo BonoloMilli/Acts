@@ -43,7 +43,7 @@
             border-color: #2a2a2a;
         }
 
-          /* Login form is hidden by default */
+        /* Login form is hidden by default */
         #loginSection {
             display: none;
         }
@@ -57,13 +57,62 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(58, 58, 58, 0.25);
+        }
+
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .toggle-link {
+            color: var(--primary-color);
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .toggle-link:hover {
+            text-decoration: underline;
+        }
+
+        .forgot-password {
+            font-size: 0.9rem;
+        }
+
+        .alert-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: none;
+        }
     </style>
 </head>
 <body>
+    <!-- Alert message container -->
+    <div id="alertMessage" class="alert alert-success alert-message" role="alert"></div>
+
     <div class="container py-5 min-vh-100 d-flex flex-column justify-content-center">
         <div class="text-center mb-5">
-            <h1 class="display-4 fw-bold">ACTS</h1>
-            <p class="lead">Fashion Reimagined</p>
+            <div class="logo-text">ACTS</div>
+            <div class="tagline">Fashion Reimagined</div>
         </div>
         
         <!-- Signup Section -->
@@ -80,7 +129,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="signupPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="signupPassword" required>
+                    <input type="password" class="form-control" id="signupPassword" minlength="6" required>
+                    <small class="text-muted">Minimum 6 characters</small>
                 </div>
                 <div class="mb-3">
                     <label for="confirmPassword" class="form-label">Confirm Password</label>
@@ -88,11 +138,11 @@
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="termsAgree" required>
-                    <label class="form-check-label" for="termsAgree">I agree to the Terms and Conditions</label>
+                    <label class="form-check-label" for="termsAgree">I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms and Conditions</a></label>
                 </div>
                 <button type="button" class="btn btn-primary w-100 mb-3" onclick="createAccount()">Create Account</button>
                 <div class="text-center">
-                    <p>Already have an account? <a href="#" onclick="showLoginForm(); return false;">Login</a></p>
+                    <p>Already have an account? <a href="#" class="toggle-link" onclick="showLoginForm(); return false;">Login</a></p>
                 </div>
             </form>
         </div>
@@ -115,26 +165,66 @@
                 </div>
                 <button type="button" class="btn btn-primary w-100 mb-3" onclick="loginUser()">Login</button>
                 <div class="text-center">
-                    <p>Don't have an account? <a href="#" onclick="showSignupForm(); return false;">Create Account</a></p>
-                    <p><a href="#" class="text-decoration-none">Forgot Password?</a></p>
+                    <p>Don't have an account? <a href="#" class="toggle-link" onclick="showSignupForm(); return false;">Create Account</a></p>
+                    <p><a href="#" class="text-decoration-none forgot-password">Forgot Password?</a></p>
                 </div>
             </form>
         </div>
     </div>
 
+    <!-- Terms and Conditions Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Please read these terms and conditions carefully before using our service.</p>
+                    <h6>1. Account Registration</h6>
+                    <p>You must provide accurate and complete information when creating an account.</p>
+                    <h6>2. Privacy Policy</h6>
+                    <p>Your personal information will be handled in accordance with our Privacy Policy.</p>
+                    <h6>3. User Responsibilities</h6>
+                    <p>You are responsible for maintaining the confidentiality of your account credentials.</p>
+                    <h6>4. Service Modifications</h6>
+                    <p>We reserve the right to modify or discontinue the service at any time.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I Understand</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
         // Toggle between signup and login forms
         function showLoginForm() {
             document.getElementById('signupSection').style.display = 'none';
             document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('loginEmail').focus();
         }
         
         function showSignupForm() {
             document.getElementById('loginSection').style.display = 'none';
             document.getElementById('signupSection').style.display = 'block';
+            document.getElementById('fullName').focus();
         }
         
+        // Show alert message
+        function showAlert(message, type = 'success') {
+            const alert = document.getElementById('alertMessage');
+            alert.textContent = message;
+            alert.className = `alert alert-${type} alert-message`;
+            alert.style.display = 'block';
+            
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 3000);
+        }
+
         // Account creation functionality
         function createAccount() {
             const fullName = document.getElementById('fullName').value.trim();
@@ -145,17 +235,28 @@
 
             // Form validation
             if (!fullName || !email || !password) {
-                alert('Please fill in all required fields');
+                showAlert('Please fill in all required fields', 'danger');
+                return;
+            }
+
+            if (password.length < 6) {
+                showAlert('Password must be at least 6 characters', 'danger');
                 return;
             }
 
             if (password !== confirmPassword) {
-                alert('Passwords do not match');
+                showAlert('Passwords do not match', 'danger');
                 return;
             }
 
             if (!termsAgreed) {
-                alert('You must agree to the Terms and Conditions');
+                showAlert('You must agree to the Terms and Conditions', 'danger');
+                return;
+            }
+
+            // Basic email validation
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showAlert('Please enter a valid email address', 'danger');
                 return;
             }
 
@@ -165,7 +266,7 @@
             // Check if user already exists
             const userExists = users.find(user => user.email === email);
             if (userExists) {
-                alert('Email already registered.');
+                showAlert('Email already registered', 'danger');
                 return;
             }
 
@@ -180,8 +281,8 @@
             // Save updated users array back to localStorage
             localStorage.setItem('actsUsers', JSON.stringify(users));
 
-            // Alert success and show login form
-            alert('Account created successfully! Please login.');
+            // Show success and show login form
+            showAlert('Account created successfully! Please login.');
             showLoginForm();
             
             // Clear the signup form
@@ -192,9 +293,10 @@
         function loginUser() {
             const email = document.getElementById('loginEmail').value.trim();
             const password = document.getElementById('loginPassword').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
 
             if (!email || !password) {
-                alert('Please enter both email and password');
+                showAlert('Please enter both email and password', 'danger');
                 return;
             }
 
@@ -210,18 +312,23 @@
                 localStorage.setItem('actsUserEmail', email);
                 localStorage.setItem('actsUserName', user.fullName);
                 
+                if (rememberMe) {
+                    localStorage.setItem('actsRememberMe', 'true');
+                } else {
+                    localStorage.removeItem('actsRememberMe');
+                }
+                
                 // Redirect to platform page
                 window.location.href = 'platform.html';
             } else {
-                alert('Invalid email or password');
+                showAlert('Invalid email or password', 'danger');
             }
         }
 
         // Check if user is already logged in when the page loads
         document.addEventListener('DOMContentLoaded', function () {
-            if (localStorage.getItem('actsLoggedIn') === 'true') {
-                window.location.href = 'index.html';
-            }
+           
+         
             
             // Setup enter key press on login form
             document.getElementById('loginForm').addEventListener('keypress', function(e) {
