@@ -6,6 +6,7 @@
     <title>ACTS - Sign Up</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         :root {
             --primary-color: #3a3a3a;
@@ -124,121 +125,162 @@
 
 
 <script>
-        // Toggle between signup and login forms
-        function showLoginForm() {
-            document.getElementById('signupSection').style.display = 'none';
-            document.getElementById('loginSection').style.display = 'block';
-        }
-        
-        function showSignupForm() {
-            document.getElementById('loginSection').style.display = 'none';
-            document.getElementById('signupSection').style.display = 'block';
-        }
-        
-        // Account creation functionality
-        function createAccount() {
-            const fullName = document.getElementById('fullName').value.trim();
-            const email = document.getElementById('signupEmail').value.trim();
-            const password = document.getElementById('signupPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            const termsAgreed = document.getElementById('termsAgree').checked;
+    // Toggle between signup and login forms
+    function showLoginForm() {
+        document.getElementById('signupSection').style.display = 'none';
+        document.getElementById('loginSection').style.display = 'block';
+    }
+    
+    function showSignupForm() {
+        document.getElementById('loginSection').style.display = 'none';
+        document.getElementById('signupSection').style.display = 'block';
+    }
+    
+    // Account creation functionality
+    function createAccount() {
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('signupEmail').value.trim();
+        const password = document.getElementById('signupPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const termsAgreed = document.getElementById('termsAgree').checked;
 
-            // Form validation
-            if (!fullName || !email || !password) {
-                alert('Please fill in all required fields');
-                return;
-            }
-
-            if (password !== confirmPassword) {
-                alert('Passwords do not match');
-                return;
-            }
-
-            if (!termsAgreed) {
-                alert('You must agree to the Terms and Conditions');
-                return;
-            }
-
-            // Get existing users from localStorage
-            const users = JSON.parse(localStorage.getItem('actsUsers') || '[]');
-
-            // Check if user already exists
-            const userExists = users.find(user => user.email === email);
-            if (userExists) {
-                alert('Email already registered.');
-                return;
-            }
-
-            // Add new user to the list
-            users.push({ 
-                fullName, 
-                email, 
-                password,
-                createdAt: new Date().toISOString()
+        // Form validation
+        if (!fullName || !email || !password) {
+            Swal.fire({
+                text: 'Please fill in all required fields',
+                icon: 'warning',
+                confirmButtonColor: '#000000',
+                background: '#ffffff',
+                iconColor: '#000000'
             });
-            
-            // Save updated users array back to localStorage
-            localStorage.setItem('actsUsers', JSON.stringify(users));
-
-            // Alert success and show login form
-            alert('Account created successfully! Please login.');
-            showLoginForm();
-            
-            // Clear the signup form
-            document.getElementById('signupForm').reset();
-        }
-        
-        // Login functionality
-        function loginUser() {
-            const email = document.getElementById('loginEmail').value.trim();
-            const password = document.getElementById('loginPassword').value;
-
-            if (!email || !password) {
-                alert('Please enter both email and password');
-                return;
-            }
-
-            // Get users from localStorage
-            const users = JSON.parse(localStorage.getItem('actsUsers') || '[]');
-            
-            // Find user by email and password
-            const user = users.find(u => u.email === email && u.password === password);
-            
-            if (user) {
-                // Set logged-in status
-                localStorage.setItem('actsLoggedIn', 'true');
-                localStorage.setItem('actsUserEmail', email);
-                localStorage.setItem('actsUserName', user.fullName);
-                
-                // Redirect to platform page
-                window.location.href = 'platform.html';
-            } else {
-                alert('Invalid email or password');
-            }
+            return;
         }
 
-        // Check if user is already logged in when the page loads
-        document.addEventListener('DOMContentLoaded', function () {
-            if (localStorage.getItem('actsLoggedIn') === 'true') {
-                window.location.href = 'index.html';
-            }
-            
-            // Setup enter key press on login form
-            document.getElementById('loginForm').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    loginUser();
-                }
+        if (password !== confirmPassword) {
+            Swal.fire({
+                text: 'Passwords do not match',
+                icon: 'error',
+                confirmButtonColor: '#000000',
+                background: '#ffffff',
+                iconColor: '#000000'
             });
-            
-            // Setup enter key press on signup form
-            document.getElementById('signupForm').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    createAccount();
-                }
+            return;
+        }
+
+        if (!termsAgreed) {
+            Swal.fire({
+                text: 'You must agree to the Terms and Conditions',
+                icon: 'warning',
+                confirmButtonColor: '#000000',
+                background: '#ffffff',
+                iconColor: '#000000'
             });
+            return;
+        }
+
+        const users = JSON.parse(localStorage.getItem('actsUsers') || '[]');
+
+        const userExists = users.find(user => user.email === email);
+        if (userExists) {
+            Swal.fire({
+                text: 'Email already registered.',
+                icon: 'error',
+                confirmButtonColor: '#000000',
+                background: '#ffffff',
+                iconColor: '#000000'
+            });
+            return;
+        }
+
+        users.push({ 
+            fullName, 
+            email, 
+            password,
+            createdAt: new Date().toISOString()
         });
-    </script>
+        
+        localStorage.setItem('actsUsers', JSON.stringify(users));
+
+        Swal.fire({
+            title: 'Success!',
+            text: 'Account created successfully! Please login.',
+            icon: 'success',
+            confirmButtonColor: '#000000',
+            background: '#ffffff',
+            iconColor: '#000000'
+        }).then(() => {
+            showLoginForm();
+            document.getElementById('signupForm').reset();
+        });
+    }
+    
+    // Login functionality
+    function loginUser() {
+        const email = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value;
+
+        if (!email || !password) {
+            Swal.fire({
+                text: 'Please enter both email and password',
+                icon: 'warning',
+                confirmButtonColor: '#000000',
+                background: '#ffffff',
+                iconColor: '#000000'
+            });
+            return;
+        }
+
+        const users = JSON.parse(localStorage.getItem('actsUsers') || '[]');
+        const user = users.find(u => u.email === email && u.password === password);
+        
+        if (user) {
+            localStorage.setItem('actsLoggedIn', 'true');
+            localStorage.setItem('actsUserEmail', email);
+            localStorage.setItem('actsUserName', user.fullName);
+            
+            Swal.fire({
+                title: 'Success!',
+                text: 'Login successful!',
+                icon: 'success',
+                confirmButtonColor: '#000000',
+                background: '#ffffff',
+                iconColor: '#000000'
+            }).then(() => {
+                window.location.href = 'platform.html';
+            });
+        } else {
+            Swal.fire({
+                text: 'Invalid email or password',
+                icon: 'error',
+                confirmButtonColor: '#000000',
+                background: '#ffffff',
+                iconColor: '#000000'
+            });
+        }
+    }
+
+    // Check if user is already logged in when the page loads
+    document.addEventListener('DOMContentLoaded', function () {
+        if (localStorage.getItem('actsLoggedIn') === 'true') {
+            window.location.href = 'index.html';
+        }
+        
+        // Setup enter key press on login form
+        document.getElementById('loginForm').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                loginUser();
+            }
+        });
+        
+        // Setup enter key press on signup form
+        document.getElementById('signupForm').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                createAccount();
+            }
+        });
+    });
+</script>
 </body>
 </html>
